@@ -44,7 +44,6 @@ public class GameService
     {
         lock (_scoreboardLock)
         {
-            // Return a snapshot copy so callers can't mutate internal state.
             return new Scoreboard
             {
                 XWins = _scoreboard.XWins,

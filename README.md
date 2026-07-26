@@ -9,6 +9,8 @@ A browser-based Tic Tac Toe game with an Angular frontend and an ASP.NET Core (.
 - Move history, Undo (mode-aware), Reset Game, and a session-level Scoreboard with its own Reset.
 - Computer opponent plays O using a fixed priority: win → block → center → corner → any available cell.
 - <img width="958" height="292" alt="image" src="https://github.com/user-attachments/assets/c2472db5-c8e2-4038-9a65-27326e7c3053" />
+<img width="955" height="328" alt="image" src="https://github.com/user-attachments/assets/2f4b56ec-f085-49f2-a254-4ec3fb3c9b79" />
+
 
 
 ## Tech Stack

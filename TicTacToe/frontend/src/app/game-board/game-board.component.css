@@ -1,0 +1,173 @@
+.app-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #1f2933;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.mode-toggle button {
+  padding: 8px 14px;
+  margin-left: 8px;
+  border: 1px solid #cbd2d9;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.mode-toggle button.active {
+  background: #1f6feb;
+  color: #fff;
+  border-color: #1f6feb;
+}
+
+.game-layout {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.board-section {
+  flex: 1 1 320px;
+}
+
+.status {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.status.won {
+  color: #1a7f37;
+}
+
+.status.draw {
+  color: #9a6700;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 96px);
+  grid-template-rows: repeat(3, 96px);
+  gap: 8px;
+}
+
+.cell {
+  font-size: 2.25rem;
+  font-weight: 700;
+  background: #f6f8fa;
+  border: 2px solid #d0d7de;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: #eaeef2;
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.filled {
+  color: #1f2933;
+}
+
+.cell.winning {
+  background: #d1fadf;
+  border-color: #1a7f37;
+}
+
+.error {
+  color: #cf222e;
+  margin-top: 10px;
+}
+
+.controls {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #cbd2d9;
+  background: #fff;
+  cursor: pointer;
+}
+
+.controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.side-panel {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.move-history table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.move-history th,
+.move-history td {
+  text-align: left;
+  padding: 4px 6px;
+  border-bottom: 1px solid #eaeef2;
+}
+
+.move-history .empty {
+  color: #57606a;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .board {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}

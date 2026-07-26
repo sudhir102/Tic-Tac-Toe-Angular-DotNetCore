@@ -1,4 +1,4 @@
-# Tic Tac Toe — Angular + .NET Core
+# Tic Tac Toe — Angular + .NET Core API
 
 A browser-based Tic Tac Toe game with an Angular frontend and an ASP.NET Core (.NET 8) Web API backend. The backend owns all game rules, session state, move history, and the scoreboard; the Angular app is a thin client that renders whatever the backend returns.
 

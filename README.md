@@ -127,23 +127,8 @@ Covers component rendering and API interaction (move submission, guarding agains
 
 **Enums as strings.** The API serializes enums (`Player`, `GameMode`, `GameStatus`) as strings (e.g. `"X"`, `"VsComputer"`, `"Won"`) for a readable JSON contract with the frontend.
 
-## AI Tools & Prompt Summary
-
-- Used an AI assistant to convert the problem statement into a concrete API contract and data model, generate the ASP.NET Core backend (controllers, service, game engine, DTOs) and xUnit tests, and scaffold the Angular standalone frontend (service, component, template/styles, a basic spec).
-- Prompted for: the full problem statement (functional requirements, API scope, undo semantics, clarifications) and a request to "design and implement the ASP.NET backend and Angular frontend as per the requirement, including tests and documentation."
-- Reviewed carefully / adjusted manually: the Undo semantics per mode (translating the two examples in the problem statement into exact logic), the "scoreboard counted once" flag design, the computer-move priority order and its unit tests, and the choice between Undo Option A vs B (documented above).
-- Assumptions: `cellIndex` (0-8) is used as the move coordinate (row/column can be derived: `row = cellIndex / 3`, `col = cellIndex % 3`); a completed game is only countable once even across repeated GETs; Reset Game reuses the same `GameId` rather than issuing a new one.
-- Trade-offs: in-memory storage (per the problem statement) means state is lost on backend restart — acceptable for a local review exercise; SQLite was not added since it wasn't required.
-
 ## Known Limitations
 
 - State is in-memory only; restarting the backend clears all games and the scoreboard.
 - No authentication/multi-user isolation — the scoreboard is a single session-level counter, as specified.
 - No persistence layer (SQLite) is wired up, though the service layer is isolated enough to add one later.
-
-## Future Improvements
-
-- Add SQLite persistence for games/scoreboard across restarts.
-- Add an "unbeatable" (minimax) computer difficulty option alongside the current priority-based one.
-- Add Cypress/E2E tests covering full game flows through the UI.
-- Add optimistic UI updates with rollback on API error, to reduce perceived latency on each move.
